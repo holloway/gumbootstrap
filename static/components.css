@@ -1,0 +1,38 @@
+#components {
+	background: #eeeeee;
+	box-shadow: inset -5px 0px 5px #cccccc;
+	width: 20%;
+	min-height:100%;
+	overflow: auto;
+	font-family:sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+#components ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#components li {
+	padding: 0px;
+	margin: 0px;
+}
+
+#components a {
+	text-decoration: none
+}
+
+#components li a {
+
+}
+
+#components li li a {
+	margin: 0px 1em 5px;
+	
+	display: block;
+	background: #dddddd;
+	border-radius: 5px;
+	padding: 5px;
+}

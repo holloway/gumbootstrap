@@ -1,0 +1,36 @@
+{
+    "groups": [
+        {
+            "name": "Grid System",
+            "components": [
+                {
+                    "name": "3-4-3",
+                    "id": "grid-3-4-3"
+                },
+                {
+                    "name": "12",
+                    "id": "grid-12"
+                }
+            ]
+        },
+        {
+            "name": "Betting",
+            "components": [
+                {
+                    "name": "Betslip",
+                    "id": "betslip"
+                },
+                {
+                    "name": "Event Navigator",
+                    "id": "eventnavigator"
+                }
+            ]
+        }
+    ],
+    "components": {
+        "grid-3-4-3": {},
+        "grid-12": {},
+        "betslip": {},
+        "eventnavigator": {}
+    }
+}

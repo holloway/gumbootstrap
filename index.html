@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gumbootstrap</title>
+	<link rel="stylesheet" type="text/css" href="static/screen.css">
+	<link rel="stylesheet" type="text/css" href="static/components.css">
+	<link rel="stylesheet" type="text/css" href="static/lib/bootstrap-columns.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+<body>
+
+	<menu id="components">
+		<script type="text/x-handlebars-template" id="components-template">
+			<ul>
+				{{#groups}}
+					<li><a href="#">{{name}}</a>
+						<ul>
+							{{#components}}
+								<li><a href="#" data-id="{{id}}" class="dragable">{{name}}</a>
+							{{/components}}
+						</ul>
+					</li>
+				{{/groups}}
+			</ul>
+		</script>
+	</menu>
+
+	<div id="container">
+		
+	</div>
+
+	<script type="text/javascript" src="static/lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="static/lib/handlebars-v1.3.0.js"></script>
+	<script type="text/javascript" src="static/component.js"></script>
+	<script type="text/javascript" src="static/init.js"></script>
+</body>
+</html>
