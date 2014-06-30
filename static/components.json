@@ -1,36 +1,46 @@
 {
-    "groups": [
+    "menu": [
         {
-            "name": "Grid System",
-            "components": [
-                {
-                    "name": "3-4-3",
-                    "id": "grid-3-4-3"
-                },
-                {
-                    "name": "12",
-                    "id": "grid-12"
-                }
+            "name": "Grids",
+            "options": [
+                "grid-3-6-3",
+                "grid-6-6",
+                "grid-12"
             ]
         },
         {
-            "name": "Betting",
-            "components": [
+            "name": "Widgets",
+            "options": [
+                "widget",
                 {
-                    "name": "Betslip",
-                    "id": "betslip"
-                },
-                {
-                    "name": "Event Navigator",
-                    "id": "eventnavigator"
+                	"name": "More widgets",
+                	"options": ["eventnavigator"]
                 }
             ]
         }
     ],
     "components": {
-        "grid-3-4-3": {},
-        "grid-12": {},
-        "betslip": {},
-        "eventnavigator": {}
+        "grid-3-6-3": {
+        	"name": "Grid 3-6-3",
+        	"html": "<div class=\"row\"><div class=\"col-xs-3\">{{drop-target}}</div><div class=\"col-xs-6\">{{drop-target}}</div><div class=\"col-xs-6\">{{drop-target}}</div></div>"
+        },
+        "grid-6-6": {
+        	"name": "Grid 6-6",
+        	"html": "<div class=\"row\"><div class=\"col-xs-6\">{{drop-target}}</div><div class=\"col-xs-6\">{{drop-target}}</div></div>"
+        },
+        "grid-12": {
+        	"name": "Grid 12",
+        	"html": "<div class=\"row\"><div class=\"col-xs-12\">{{drop-target}}</div></div>"
+        },
+        "widget": {
+        	"name": "Widget",
+        	"html": "<div class=\"component-widget\"></div>",
+        	"needs-container": true
+        },
+        "eventnavigator": {
+        	"name": "Event Navigator",
+        	"html": "<div class=\"component-event-navigator\"></div>",
+        	"needs-container": true
+        }
     }
 }

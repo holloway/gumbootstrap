@@ -14,9 +14,41 @@
 	window.component = {
 			$target: undefined,
 			refresh_list: function(){
-				if(!components_template) components_template = Handlebars.compile($("#components-template").html());
+				if(!components_template) {
+					components_template = Handlebars.compile($("#components-template").html());
+					Handlebars.registerHelper('nestedMenu', function(info) {
+						var template = Handlebars.compile($('#nested-menu').html());
+						console.log("info", info, arguments);
+						return template({options: info});
+					});
+				}
+				console.log(components);
+				if(!components.groups){
+					components.groups = window.component.descend_menu(components.menu);
+					console.log(components.groups)
+				}
 				var $components = $cache("#components");
 				$components.html( components_template(components));
+			},
+			descend_menu: function(options){
+				var response = [],
+					option,
+					i;
+
+				for(i = 0; i < options.length; i++){
+					option = options[i];
+					if(option.name){
+						response.push({
+							"branch": option.name,
+							"options": component.descend_menu(option.options)
+						});
+					} else {
+						response.push(components.components[option])
+					}
+					
+
+				}
+				return response;
 			},
 			drag: function(event){
 				var _this = component,
@@ -35,7 +67,6 @@
 				var _this = component;
 				if(!_this.$target) return;
 				_this.$target = undefined;
-				console.log("DROP!")
 				event.preventDefault();
 			}
 		};

@@ -25,8 +25,8 @@
 	text-decoration: none
 }
 
-#components li a {
-
+#components li ul {
+	margin-left: 1em;
 }
 
 #components li li a {

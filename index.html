@@ -9,23 +9,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 </head>
-<body>
+<body class="editor-mode-on">
 
 	<menu id="components">
 		<script type="text/x-handlebars-template" id="components-template">
 			<ul>
 				{{#groups}}
-					<li><a href="#">{{name}}</a>
-						<ul>
-							{{#components}}
-								<li><a href="#" data-id="{{id}}" class="dragable">{{name}}</a>
-							{{/components}}
-						</ul>
+					<li>[+] {{branch}}
+						{{&nestedMenu options}}
 					</li>
 				{{/groups}}
 			</ul>
 		</script>
-	</menu><div id="container">
+		<script id="nested-menu" type="text/x-handlebars-template">
+			<ul>
+				{{#options}}
+					{{#if branch}}
+						<li>
+							[+] {{branch}}
+							{{&nestedMenu options}}
+						</li>
+					{{/if}}
+					{{^branch}}
+						<li data-html="{{html}}">
+							{{name}}
+						
+						</li>
+					{{/branch}}
+				{{/options}}
+		    </ul>
+		</script>
+	</menu><!-- no whitespace between these nodes allowed --><div id="container">
 		what what what
 	</div>
 
