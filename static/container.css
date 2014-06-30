@@ -1,0 +1,9 @@
+#container {
+    width: 80%;
+    min-height:100%;
+    overflow: auto;
+    font-family:sans-serif;
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}

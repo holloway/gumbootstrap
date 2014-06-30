@@ -33,8 +33,9 @@
 			},
 			drop: function(event){
 				var _this = component;
-				console.log("DROP!")
+				if(!_this.$target) return;
 				_this.$target = undefined;
+				console.log("DROP!")
 				event.preventDefault();
 			}
 		};
