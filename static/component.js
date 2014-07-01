@@ -12,7 +12,6 @@
 		}();
 
 	window.component = {
-			$target: undefined,
 			refresh_list: function(){
 				if(!components_template) {
 					components_template = Handlebars.compile($("#components-template").html());
@@ -25,7 +24,6 @@
 				console.log(components);
 				if(!components.groups){
 					components.groups = window.component.descend_menu(components.menu);
-					console.log(components.groups)
 				}
 				var $components = $cache("#components");
 				$components.html( components_template(components));
@@ -43,38 +41,35 @@
 							"options": component.descend_menu(option.options)
 						});
 					} else {
-						response.push(components.components[option])
+						components.components[option].id = option;
+						response.push(components.components[option]);
 					}
-					
-
 				}
 				return response;
 			},
-			drag: function(event){
-				var _this = component,
-					$target = $(this);
-
-				_this.$target = $target;
-				event.preventDefault();
+			drag_start: function(event){
+				event.originalEvent.dataTransfer.setData("Text", event.target.getAttribute("data-id"));
 			},
-			move: function(event){
-				var _this = component;
+			allow_drop: function(event){
 				event.preventDefault();
-				if(!_this.$target) return;
-				console.log(event, event.target);
+				console.log(event.dataTransfer);
 			},
 			drop: function(event){
-				var _this = component;
-				if(!_this.$target) return;
-				_this.$target = undefined;
+				var $target = $(event.target);
 				event.preventDefault();
+				var component_id = event.originalEvent.dataTransfer.getData("Text");
+
+				$target.replaceWith(components.components[component_id].html + '<div class="dropable">Drop here</div>');
 			}
 		};
 
 	$document.on("gbs:init", function(){
-		$cache("#components").on("mousedown", ".dragable", window.component.drag);
-		$document.on("mousemove",                          window.component.move);
-		$document.on("mouseup",                            window.component.drop);
+		var $components = $cache("#components");
+		$document.on("dragstart", ".draggable", window.component.drag_start);
+		$document.on("dragover",  ".dropable", window.component.allow_drop);
+		$document.on("drop",      ".dropable", window.component.drop);
+		//ev.target.appendChild(document.getElementById(data));
+
 		component.refresh_list();
 	});
 

@@ -1,13 +1,14 @@
 #components {
 	background: #eeeeee;
-	box-shadow: inset -5px 0px 5px #cccccc;
+	box-shadow: inset -2px 0px 2px #ddd;
 	width: 20%;
 	min-height:100%;
 	overflow: auto;
 	font-family:sans-serif;
 	margin: 0px;
-	padding: 0px;
+	padding: 10px;
 	display: inline-block;
+	box-sizing: border-box;
 }
 
 #components ul {
@@ -18,22 +19,34 @@
 
 #components li {
 	padding: 0px;
-	margin: 0px;
+	margin:  5px 0px;
 }
 
 #components a {
 	text-decoration: none
 }
 
-#components li ul {
+#components ul ul ul {
 	margin-left: 1em;
 }
 
-#components li li a {
-	margin: 0px 1em 5px;
-	
+#components span {
 	display: block;
-	background: #dddddd;
-	border-radius: 5px;
+	font-size:small;
+	color: #555;
+	margin-left: 0.4em;
+}
+
+#components ul ul span {
+	margin-left: 1.7em;
+}
+
+#components li li a {
+	display: block;
+	margin: 0px;
 	padding: 5px;
+	background: #dddddd;
+	border-radius: 2px;	
+	color: #666;
+	text-shadow: 0px 0px 1px #fcc;
 }

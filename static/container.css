@@ -6,4 +6,23 @@
     margin: 0px;
     padding: 0px;
     display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#container .row > div {
+	outline: solid 1px #ccc;
+	border-radius: 3px;
+}
+
+#container .dropable {
+	
+	outline: dotted 1px #aaa;
+	min-height: 30px;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+#container .dropable:hover {
+	outline: dotted 1px #888;
 }
